@@ -13,12 +13,12 @@ server.on('error',function(error){
 
 // emits on new datagram msg
 server.on('message',function(msg,info){
-  var d=msg.toString().split(':');
+  var d=msg.toString().split('\n')[0].split(':');
   console.log(d);
 //  console.log('Received %d bytes from %s:%d\n',msg.length, info.address, info.port);
 
 //sending msg
-server.send(msg,info.port,'localhost',function(error){
+/*server.send(msg,info.port,'localhost',function(error){
   if(error){
     client.close();
   }else{
@@ -26,6 +26,7 @@ server.send(msg,info.port,'localhost',function(error){
   }
 
 });
+*/
 
 });
 

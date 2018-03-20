@@ -6,7 +6,7 @@ var buffer = require('buffer');
 var client = udp.createSocket('udp4');
 
 //buffer msg
-var data = Buffer.from('siddheshrane');
+var data = Buffer.from('0.25,0.25\n');
 
 client.on('message', function(msg, info) {
     console.log('Data received from server : ' + msg.toString());
@@ -14,14 +14,15 @@ client.on('message', function(msg, info) {
 });
 
 //sending msg
-client.send(data, 2222, 'localhost', function(error) {
+client.send(data, 5502, 'localhost', function(error) {
     if (error) {
         client.close();
     } else {
-        console.log('Data sent !!!');
+        console.log('OK');
     }
 });
 
+/*
 var data1 = Buffer.from('hello');
 var data2 = Buffer.from('world');
 
@@ -32,4 +33,4 @@ client.send([data1, data2], 2222, 'localhost', function(error) {
     } else {
         console.log('Data sent !!!');
     }
-});
+});*/
